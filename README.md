@@ -1,0 +1,12 @@
+# APP Diluição para Pulverização
+
+APP que informa a diluição dos produtos comprados para o processo de pulverização.
+
+
+### Tecnologias Utilizadas
+* HTML5 & Javascript
+* jQuery
+* Bootstrap 3.2
+
+
+*em desenvolvimento, v0.0.1*
