@@ -4,7 +4,7 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<html>
+<html ng-app="formApp" ng-controller="formController">
     <head>
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
@@ -51,7 +51,7 @@ and open the template in the editor.
                 </p>
                 <div class="form-group">
                   <label for="taxa">em L/ha </label>    
-                  <input id="taxa" type="text" class="form-control" placeholder="0 L/ha" />
+                  <input id="taxa" ng-model="formData.taxa" type="text" class="form-control" placeholder="0 L/ha" />
                 </div>
                 <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span>
             </div>
@@ -60,23 +60,26 @@ and open the template in the editor.
                 <h2>Produto Comprado</h2>
                 <br />
                 <p>
-                    Preciso saber algumas informações do produto que iremos diluir. São poucos detalhes, primeiramente <span class="bold">selecione</span> abaixo qual a unidade de medida de medida que você deseja utilizar.   
+                    Preciso saber algumas informações do produto que iremos diluir. São poucos detalhes, primeiramente <span class="bold">selecione</span> abaixo qual a unidade de medida que você deseja utilizar.   
                 </p>
                 <br />
-                <div id="medidas" class="btn-group" data-toggle="buttons">
-                  <label class="btn btn-primary active">
-                    <input type="radio" name="medida" id="option1" value="Kg/ha" autocomplete="off" checked> Kg/ha
-                  </label>
-                  <label class="btn btn-primary">
-                    <input type="radio" name="medida" id="option2" value="g/ha" autocomplete="off"> g/ha
-                  </label>
-                  <label class="btn btn-primary">
-                    <input type="radio" name="medida" id="option3" value="L/ha" autocomplete="off"> L/ha
-                  </label>
-                  <label class="btn btn-primary">
-                    <input type="radio" name="medida" id="option4" value="mL/ha" autocomplete="off"> mL/ha
-                  </label>
-                </div>
+        <div class="form-group">
+            <div id="medidas" class="btn-group">
+              <label class="btn btn-primary">
+                <input type="radio" name="medida" id="option1" value="Kg/ha" ng-model="formData.medida"> Kg/ha
+              </label>
+              <label class="btn btn-primary">
+                <input type="radio" name="medida" id="option2" value="g/ha" ng-model="formData.medida"> g/ha
+              </label>
+              <label class="btn btn-primary">
+                <input type="radio" name="medida" id="option3" value="L/ha" ng-model="formData.medida"> L/ha
+              </label>
+              <label class="btn btn-primary">
+                <input type="radio" name="medida" id="option4" value="mL/ha" ng-model="formData.medida"> mL/ha
+              </label>
+            </div>
+            {{formData}}
+        </div>
                 <br />
                 <br />
                 <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span>
@@ -90,8 +93,8 @@ and open the template in the editor.
                 </p>
                 <br />
                 <div class="form-group">
-                  <label for="exemplo">em ??/ha </label>    
-                  <input id="dose" type="text" class="form-control" placeholder="0 ??/ha" />
+                  <label for="exemplo">em {{formData.medida}} </label>    
+                  <input id="dose" ng-model="formData.dose" type="text" class="form-control" placeholder="0 {{formData.medida}}" />
                 </div>
                 <br />
                 <br />
@@ -107,7 +110,7 @@ and open the template in the editor.
                 <br />
                 <div class="form-group">
                   <label for="exemplo">em L </label>    
-                  <input id="exemplo" type="text" class="form-control" placeholder="0 Litros" />
+                  <input id="tanque" ng-model="formData.tanque" name="tanque" type="text" class="form-control" placeholder="0 Litros" />
                 </div>
                 <br />
                 <br />
@@ -124,15 +127,15 @@ and open the template in the editor.
                     </a>
                     <a class="list-group-item">
                       <h4 class="list-group-item-heading">Dose do Produto</h4>
-                      <p class="list-group-item-text">0.0??</p>
+                      <p class="list-group-item-text">{{formData.dose}} {{formData.medida}}</p>
                     </a>
                     <a class="list-group-item">
                       <h4 class="list-group-item-heading">Taxa de Aplicação</h4>
-                      <p class="list-group-item-text">00</p>
+                      <p class="list-group-item-text">{{formData.taxa}} L/ha</p>
                     </a>
                     <a class="list-group-item">
                       <h4 class="list-group-item-heading">Tanque do Pulverizador</h4>
-                      <p class="list-group-item-text">00 Litros</p>
+                      <p class="list-group-item-text">{{formData.tanque}} L</p>
                     </a>
                     <a class="list-group-item active">
                         <h3 class="list-group-item-heading" style="text-align: center;">RESULTADO</h3><h4>xx L/tanque</h4>
@@ -141,8 +144,11 @@ and open the template in the editor.
             </div>
         </div>
         <!-- SCRIPT DOWNLOADS AREA-->
+        <script src="js/angular.min.js"></script>
         <script src="js/jquery-3.2.0.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
+        <!-- PROJECT'S SCRIPTS -->
+        <script src="js/app.js"></script>
         <script src="js/tela.js"></script>
         <script>
             $(document).ready(function(){   
@@ -163,6 +169,10 @@ and open the template in the editor.
                     });
                         
                     $("#dose").focus(function() {
+                        $("#bloco-tanque").show();
+                    });
+                        
+                    $("#tanque").focus(function() {
                         $("#bloco-resultado").show();
                     });
             });

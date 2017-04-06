@@ -6,7 +6,8 @@ APP que informa a diluição dos produtos comprados para o processo de pulveriza
 ### Tecnologias Utilizadas
 * HTML5 & Javascript
 * jQuery
+* AngularJS
 * Bootstrap 3.2
 
 
-*em desenvolvimento, v0.0.1*
+*em desenvolvimento, v0.0.4*
