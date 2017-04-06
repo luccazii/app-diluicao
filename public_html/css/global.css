@@ -20,3 +20,7 @@ p{
     background-color: #f5e79e; 
     /* c9e2b3 */
 }
+
+.list-group-item-heading{
+    text-align: left;
+}
