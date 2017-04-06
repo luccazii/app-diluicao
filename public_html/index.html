@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/reset.css" rel="stylesheet">
+        <link href="css/global.css" rel="stylesheet">
+    </head>
+    <body>
+        <nav class="navbar navbar-default">
+          <div class="container">
+            <a class="navbar-brand logo">DILUIÇÃO</a>
+          </div>
+        </nav>
+        <div class="row">
+            <div class="col-md-12 bloco">
+                <h1>Olá!</h1>
+                <p>
+                    Seja <span class="bold">bem-vindo</span> ao aplicativo para diluição de pulverização.
+                    Por favor, para evitarmos erros na aplicação final com o pulverizador, verifique se os dados estão certos.
+                </p>
+                <p>
+                    <span class="bold">Antes de começarmos </span>verifique se você possui todos os requisitos listados abaixo. É fundamental possuir todos os ítens abaixo corretos. A <span class="bold">Taxa de Aplicação</span> poderá ser obtida em nosso outro aplicativo, caso não a tenha!
+                </p>
+                <div class="list-group">
+                    <a class="list-group-item">
+                      <p class="list-group-item-text"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Dose do produto comprado</p>
+                    </a>
+                    <a class="list-group-item">
+                      <p class="list-group-item-text"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Espaço máximo do pulverizador</p>
+                    </a>
+                    <a class="list-group-item">
+                      <p class="list-group-item-text"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Taxa de aplicação</p>
+                    </a>
+                </div>
+                <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span>
+            </div>
+            <div class="col-md-12 bloco">
+                <hr>
+                <h2>Taxa de Aplicação</h2>
+                <br />
+                <p>
+                    Informe a  <span class="bold">taxa de aplicação em L/ha</span> corretamente. Caso você não tenha este dado, disponibilizamos outro app para você descobrir.
+                </p>
+                <div class="form-group">
+                  <label for="exemplo">em L/ha </label>    
+                  <input id="exemplo" type="text" class="form-control" placeholder="0 L/ha" />
+                </div>
+                <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span>
+            </div>
+            <div class="col-md-12 bloco">
+                <hr>
+                <h2>Produto Comprado</h2>
+                <br />
+                <p>
+                    Preciso saber algumas informações do produto que iremos diluir. São poucos detalhes, primeiramente <span class="bold">selecione</span> abaixo qual a unidade de medida de medida que você deseja utilizar.   
+                </p>
+                <br />
+                <div class="btn-group" data-toggle="buttons">
+                  <label class="btn btn-primary active">
+                    <input type="radio" name="medida" id="option1" value="Kg/ha" autocomplete="off" checked> Kg/ha
+                  </label>
+                  <label class="btn btn-primary">
+                    <input type="radio" name="medida" id="option2" value="g/ha" autocomplete="off"> g/ha
+                  </label>
+                  <label class="btn btn-primary">
+                    <input type="radio" name="medida" id="option3" value="L/ha" autocomplete="off"> L/ha
+                  </label>
+                  <label class="btn btn-primary">
+                    <input type="radio" name="medida" id="option4" value="mL/ha" autocomplete="off"> mL/ha
+                  </label>
+                </div>
+                <br />
+                <br />
+                <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span>
+            </div>
+        </div>
+        <!-- SCRIPT DOWNLOADS AREA-->
+        <script src="js/jquery-3.2.0.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/tela.js"></script>
+        <script>
+            var tela = new Tela();
+            tela.Ajustar(".bloco");
+        </script>
+    </body>
+</html>

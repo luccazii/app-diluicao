@@ -1,0 +1,22 @@
+.bloco{
+    background-color: whitesmoke;
+    font-family: "Arial";
+    font-size: 23px;
+    text-align: center;
+    padding: 28px;
+    margin-top: -40px;
+}
+
+p{
+    font-size: 14px;
+    text-align: left;
+}
+
+.bold{
+    font-weight: bolder;
+}
+
+.navbar{
+    background-color: #f5e79e; 
+    /* c9e2b3 */
+}
