@@ -20,7 +20,7 @@ and open the template in the editor.
           </div>
         </nav>
         <div class="row">
-            <div class="col-md-12 bloco">
+            <div class="col-md-12 bloco" id="bloco-ola">
                 <h1>Olá!</h1>
                 <p>
                     Seja <span class="bold">bem-vindo</span> ao aplicativo para diluição de pulverização.
@@ -42,7 +42,7 @@ and open the template in the editor.
                 </div>
                 <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span>
             </div>
-            <div class="col-md-12 bloco">
+            <div class="col-md-12 bloco" id="bloco-tapli">
                 <hr>
                 <h2>Taxa de Aplicação</h2>
                 <br />
@@ -50,12 +50,12 @@ and open the template in the editor.
                     Informe a  <span class="bold">taxa de aplicação em L/ha</span> corretamente. Caso você não tenha este dado, disponibilizamos outro app para você descobrir.
                 </p>
                 <div class="form-group">
-                  <label for="exemplo">em L/ha </label>    
-                  <input id="exemplo" type="text" class="form-control" placeholder="0 L/ha" />
+                  <label for="taxa">em L/ha </label>    
+                  <input id="taxa" type="text" class="form-control" placeholder="0 L/ha" />
                 </div>
                 <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span>
             </div>
-            <div class="col-md-12 bloco">
+            <div class="col-md-12 bloco" id="bloco-produto">
                 <hr>
                 <h2>Produto Comprado</h2>
                 <br />
@@ -63,7 +63,7 @@ and open the template in the editor.
                     Preciso saber algumas informações do produto que iremos diluir. São poucos detalhes, primeiramente <span class="bold">selecione</span> abaixo qual a unidade de medida de medida que você deseja utilizar.   
                 </p>
                 <br />
-                <div class="btn-group" data-toggle="buttons">
+                <div id="medidas" class="btn-group" data-toggle="buttons">
                   <label class="btn btn-primary active">
                     <input type="radio" name="medida" id="option1" value="Kg/ha" autocomplete="off" checked> Kg/ha
                   </label>
@@ -81,7 +81,7 @@ and open the template in the editor.
                 <br />
                 <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span>
             </div>
-            <div class="col-md-12 bloco">
+            <div class="col-md-12 bloco" id="bloco-dose">
                 <hr>
                 <h3>Dose que será diluída</h3>
                 <br />
@@ -91,13 +91,13 @@ and open the template in the editor.
                 <br />
                 <div class="form-group">
                   <label for="exemplo">em ??/ha </label>    
-                  <input id="exemplo" type="text" class="form-control" placeholder="0 ??/ha" />
+                  <input id="dose" type="text" class="form-control" placeholder="0 ??/ha" />
                 </div>
                 <br />
                 <br />
                 <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span>
             </div>
-            <div class="col-md-12 bloco">
+            <div class="col-md-12 bloco" id="bloco-tanque">
                 <hr>
                 <h2>Tamanho do tanque</h2>
                 <br />
@@ -113,7 +113,7 @@ and open the template in the editor.
                 <br />
                 <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span>
             </div>
-            <div class="col-md-12 bloco">
+            <div class="col-md-12 bloco" id="bloco-resultado">
                 <hr>
                 <h1>Resultado</h1>
                 <br />
@@ -145,8 +145,27 @@ and open the template in the editor.
         <script src="js/bootstrap.min.js"></script>
         <script src="js/tela.js"></script>
         <script>
-            var tela = new Tela();
-            tela.Ajustar(".bloco");
+            $(document).ready(function(){   
+                var tela = new Tela();
+                tela.Ajustar(".bloco");
+                
+                    $("#bloco-produto").hide();
+                    $("#bloco-dose").hide();
+                    $("#bloco-tanque").hide();
+                    $("#bloco-resultado").hide();
+                        
+                    $("#taxa").focus(function() {
+                        $("#bloco-produto").show();
+                    });
+                        
+                    $("#medidas").click(function() {
+                        $("#bloco-dose").show();
+                    });
+                        
+                    $("#dose").focus(function() {
+                        $("#bloco-resultado").show();
+                    });
+            });
         </script>
     </body>
 </html>
