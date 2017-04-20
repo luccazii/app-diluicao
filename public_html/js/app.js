@@ -1,3 +1,10 @@
+/* 
+ * 
+ * require AngularJS
+ * 
+ */
+
+
 var formApp = angular.module('formApp', [])
 
     .controller('formController', function($scope) {
@@ -5,3 +12,4 @@ var formApp = angular.module('formApp', [])
         $scope.formData = {};
         
     });
+    

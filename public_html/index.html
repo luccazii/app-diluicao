@@ -138,7 +138,7 @@ and open the template in the editor.
                       <p class="list-group-item-text">{{formData.tanque}} L</p>
                     </a>
                     <a class="list-group-item active">
-                        <h3 class="list-group-item-heading" style="text-align: center;">RESULTADO</h3><h4>xx L/tanque</h4>
+                        <h3 class="list-group-item-heading" style="text-align: center;">RESULTADO</h3><h4>{{(formData.tanque * formData.dose) / formData.taxa}} L/tanque</h4>
                     </a>
                 </div>
             </div>
@@ -150,6 +150,7 @@ and open the template in the editor.
         <!-- PROJECT'S SCRIPTS -->
         <script src="js/app.js"></script>
         <script src="js/tela.js"></script>
+        <script src="js/calculo.js"></script>
         <script>
             $(document).ready(function(){   
                 var tela = new Tela();
@@ -175,6 +176,7 @@ and open the template in the editor.
                     $("#tanque").focus(function() {
                         $("#bloco-resultado").show();
                     });
+                   
             });
         </script>
     </body>
