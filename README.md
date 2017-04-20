@@ -10,5 +10,5 @@ APP que informa a diluição dos produtos comprados para o processo de pulveriza
 * Bootstrap 3.2
 
 
-*em desenvolvimento,
- funcional, v0.9.1 *
+*em desenvolvimento,*
+*funcional, v0.9.1*
